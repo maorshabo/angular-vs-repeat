@@ -400,11 +400,16 @@
                         });
 
                         $scope.$on('vsRepeatTrigger', refresh);
-
+                        $scope.$on('vsScrollTop', scrollTop);
                         $scope.$on('vsRepeatResize', function() {
                             autoSize = true;
                             setAutoSize();
                         });
+
+                        function scrollTop() {
+                            $scrollParent.scrollTop(0);
+                            reinitialize();
+                        }
 
                         var _prevStartIndex,
                             _prevEndIndex,
